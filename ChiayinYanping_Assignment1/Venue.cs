@@ -71,12 +71,18 @@ namespace ChiayinYanping_Assignment1
         private void btnCancel_Click(object sender, EventArgs e)
         {
             lblMessage.Text = book.Cancel(row, column);
-            /// Change button color to green when cancel
-            UpdateSeatButtonColor(row, column, Color.LightGreen);
-
+     
+            /// messagebox
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this userName?",
+            "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             //DialogResult result = MessageBox.Show("Are you sure you want to delete this userName",
             // MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
 
+            /// Change button color to green when cancel
+            if(result == DialogResult.Yes)
+            {
+                UpdateSeatButtonColor(row, column, Color.LightGreen);
+            }
 
         }
 
