@@ -21,6 +21,15 @@ namespace ChiayinYanping_Assignment1
         public Venue()
         {
             InitializeComponent();
+            // adding items to listboxs
+            listBoxRows.Items.Add("A");
+            listBoxRows.Items.Add("B");
+            listBoxRows.Items.Add("C");
+
+            listBoxColums.Items.Add("1");
+            listBoxColums.Items.Add("2");
+            listBoxColums.Items.Add("3");
+            listBoxColums.Items.Add("4");
         }
     }
 }

@@ -47,8 +47,8 @@
             this.lblColums = new System.Windows.Forms.Label();
             this.lblCustomerName = new System.Windows.Forms.Label();
             this.lblMessage = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.listBoxRows = new System.Windows.Forms.ListBox();
+            this.listBoxColums = new System.Windows.Forms.ListBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnBook = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -241,23 +241,23 @@
             this.lblMessage.TabIndex = 4;
             this.lblMessage.Text = "label2";
             // 
-            // listBox1
+            // listBoxRows
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Location = new System.Drawing.Point(664, 208);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(185, 229);
-            this.listBox1.TabIndex = 5;
+            this.listBoxRows.FormattingEnabled = true;
+            this.listBoxRows.ItemHeight = 25;
+            this.listBoxRows.Location = new System.Drawing.Point(664, 208);
+            this.listBoxRows.Name = "listBoxRows";
+            this.listBoxRows.Size = new System.Drawing.Size(185, 229);
+            this.listBoxRows.TabIndex = 5;
             // 
-            // listBox2
+            // listBoxColums
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 25;
-            this.listBox2.Location = new System.Drawing.Point(921, 208);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(185, 229);
-            this.listBox2.TabIndex = 5;
+            this.listBoxColums.FormattingEnabled = true;
+            this.listBoxColums.ItemHeight = 25;
+            this.listBoxColums.Location = new System.Drawing.Point(921, 208);
+            this.listBoxColums.Name = "listBoxColums";
+            this.listBoxColums.Size = new System.Drawing.Size(185, 229);
+            this.listBoxColums.TabIndex = 5;
             // 
             // textBox1
             // 
@@ -322,8 +322,8 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnBook);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listBoxColums);
+            this.Controls.Add(this.listBoxRows);
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.lblCustomerName);
             this.Controls.Add(this.lblColums);
@@ -360,8 +360,8 @@
         private System.Windows.Forms.Label lblColums;
         private System.Windows.Forms.Label lblCustomerName;
         private System.Windows.Forms.Label lblMessage;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox listBoxRows;
+        private System.Windows.Forms.ListBox listBoxColums;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnBook;
         private System.Windows.Forms.Button btnCancel;
