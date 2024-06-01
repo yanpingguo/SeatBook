@@ -208,7 +208,7 @@
             // lblRows
             // 
             this.lblRows.AutoSize = true;
-            this.lblRows.Location = new System.Drawing.Point(659, 180);
+            this.lblRows.Location = new System.Drawing.Point(599, 169);
             this.lblRows.Name = "lblRows";
             this.lblRows.Size = new System.Drawing.Size(71, 25);
             this.lblRows.TabIndex = 3;
@@ -217,7 +217,7 @@
             // lblColums
             // 
             this.lblColums.AutoSize = true;
-            this.lblColums.Location = new System.Drawing.Point(916, 180);
+            this.lblColums.Location = new System.Drawing.Point(856, 169);
             this.lblColums.Name = "lblColums";
             this.lblColums.Size = new System.Drawing.Size(90, 25);
             this.lblColums.TabIndex = 3;
@@ -226,7 +226,7 @@
             // lblCustomerName
             // 
             this.lblCustomerName.AutoSize = true;
-            this.lblCustomerName.Location = new System.Drawing.Point(659, 456);
+            this.lblCustomerName.Location = new System.Drawing.Point(599, 445);
             this.lblCustomerName.Name = "lblCustomerName";
             this.lblCustomerName.Size = new System.Drawing.Size(169, 25);
             this.lblCustomerName.TabIndex = 3;
@@ -245,7 +245,7 @@
             // 
             this.listBoxRows.FormattingEnabled = true;
             this.listBoxRows.ItemHeight = 25;
-            this.listBoxRows.Location = new System.Drawing.Point(664, 208);
+            this.listBoxRows.Location = new System.Drawing.Point(604, 197);
             this.listBoxRows.Name = "listBoxRows";
             this.listBoxRows.Size = new System.Drawing.Size(185, 229);
             this.listBoxRows.TabIndex = 5;
@@ -254,21 +254,21 @@
             // 
             this.listBoxColums.FormattingEnabled = true;
             this.listBoxColums.ItemHeight = 25;
-            this.listBoxColums.Location = new System.Drawing.Point(921, 208);
+            this.listBoxColums.Location = new System.Drawing.Point(861, 197);
             this.listBoxColums.Name = "listBoxColums";
             this.listBoxColums.Size = new System.Drawing.Size(185, 229);
             this.listBoxColums.TabIndex = 5;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(664, 494);
+            this.textBox1.Location = new System.Drawing.Point(604, 483);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(442, 31);
             this.textBox1.TabIndex = 6;
             // 
             // btnBook
             // 
-            this.btnBook.Location = new System.Drawing.Point(664, 574);
+            this.btnBook.Location = new System.Drawing.Point(604, 563);
             this.btnBook.Name = "btnBook";
             this.btnBook.Size = new System.Drawing.Size(132, 58);
             this.btnBook.TabIndex = 7;
@@ -277,7 +277,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(802, 574);
+            this.btnCancel.Location = new System.Drawing.Point(742, 563);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(132, 58);
             this.btnCancel.TabIndex = 7;
@@ -286,7 +286,7 @@
             // 
             // btnAddToWallet
             // 
-            this.btnAddToWallet.Location = new System.Drawing.Point(940, 574);
+            this.btnAddToWallet.Location = new System.Drawing.Point(880, 563);
             this.btnAddToWallet.Name = "btnAddToWallet";
             this.btnAddToWallet.Size = new System.Drawing.Size(166, 58);
             this.btnAddToWallet.TabIndex = 7;
@@ -295,18 +295,18 @@
             // 
             // btnFillAllSeats
             // 
-            this.btnFillAllSeats.Location = new System.Drawing.Point(664, 653);
+            this.btnFillAllSeats.Location = new System.Drawing.Point(604, 642);
             this.btnFillAllSeats.Name = "btnFillAllSeats";
-            this.btnFillAllSeats.Size = new System.Drawing.Size(206, 58);
+            this.btnFillAllSeats.Size = new System.Drawing.Size(164, 58);
             this.btnFillAllSeats.TabIndex = 7;
             this.btnFillAllSeats.Text = "Fill all seats";
             this.btnFillAllSeats.UseVisualStyleBackColor = true;
             // 
             // btnCancelAllBookings
             // 
-            this.btnCancelAllBookings.Location = new System.Drawing.Point(896, 653);
+            this.btnCancelAllBookings.Location = new System.Drawing.Point(788, 642);
             this.btnCancelAllBookings.Name = "btnCancelAllBookings";
-            this.btnCancelAllBookings.Size = new System.Drawing.Size(210, 58);
+            this.btnCancelAllBookings.Size = new System.Drawing.Size(258, 58);
             this.btnCancelAllBookings.TabIndex = 7;
             this.btnCancelAllBookings.Text = "Cancel all bookings";
             this.btnCancelAllBookings.UseVisualStyleBackColor = true;
@@ -315,7 +315,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1255, 797);
+            this.ClientSize = new System.Drawing.Size(1123, 797);
             this.Controls.Add(this.btnCancelAllBookings);
             this.Controls.Add(this.btnFillAllSeats);
             this.Controls.Add(this.btnAddToWallet);
