@@ -34,6 +34,9 @@ namespace ChiayinYanping_Assignment1
             listBoxColums.Items.Add("2");
             listBoxColums.Items.Add("3");
             listBoxColums.Items.Add("4");
+
+            /// Initialize seat buttons color
+            ResetAllSeatButtonColors();
         }
 
         private void Venue_Load(object sender, EventArgs e)
@@ -50,6 +53,8 @@ namespace ChiayinYanping_Assignment1
             if (string.IsNullOrEmpty(returnValue))
             {
                 lblMessage.Text = "This seat book sucessfull";
+                /// Change button color to red when booked
+                UpdateSeatButtonColor(row, column, Color.Red);
             }
             else
             {
@@ -66,6 +71,8 @@ namespace ChiayinYanping_Assignment1
         private void btnCancel_Click(object sender, EventArgs e)
         {
             lblMessage.Text = book.Cancel(row, column);
+            /// Change button color to green when cancel
+            UpdateSeatButtonColor(row, column, Color.LightGreen);
 
             //DialogResult result = MessageBox.Show("Are you sure you want to delete this userName",
             // MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
@@ -78,6 +85,9 @@ namespace ChiayinYanping_Assignment1
         {
             book.CancelAll();
             lblMessage.Text = "Cancel all successfull";
+            /// Change button color to green when reset /// not working!!!!
+            ResetAllSeatButtonColors();
+
         }
 
         // get listBoxRow  selected value
@@ -91,7 +101,29 @@ namespace ChiayinYanping_Assignment1
         {
             column = int.Parse(listBoxColums.SelectedItem.ToString());
         }
-        
+
+        /// Method to update seat button color
+        private void UpdateSeatButtonColor(string row, int column, Color color)
+        {
+            string buttonName = $"btn{row}{column}";
+            Button seatButton = this.Controls.Find(buttonName, true).FirstOrDefault() as Button;
+            if (seatButton != null)
+            {
+                seatButton.BackColor = color;
+            }
+        }
+
+        /// Method to reset all seat button colors
+        private void ResetAllSeatButtonColors()
+        {
+            foreach (var row in new[] { "A", "B", "C" })
+            {
+                for (int col = 1; col <= 4; col++)
+                {
+                    UpdateSeatButtonColor(row, col, Color.LightGreen);
+                }
+            }
+        }
 
     }
 }
