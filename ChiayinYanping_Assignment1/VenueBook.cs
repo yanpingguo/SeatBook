@@ -129,7 +129,7 @@ namespace ChiayinYanping_Assignment1
             {
                 if (!userName.Equals(seatAvailable))
                 {
-                    return "your userName is empty or this userName is not exist";
+                    return "your userName is not exist";
                 }
                 if (waitList.Count != 0)
                 {

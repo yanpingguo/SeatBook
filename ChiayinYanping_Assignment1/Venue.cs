@@ -91,28 +91,27 @@ namespace ChiayinYanping_Assignment1
         //cancel one booking
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            /// messagebox
-            DialogResult result = MessageBox.Show("Are you sure you want to delete this userName?",
-            "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            /// Change button color to green when cancel
-            if(result == DialogResult.Yes)
+            string userName = txtCustomerName.Text.ToString();
+            if (!string.IsNullOrEmpty(userName) && !string.IsNullOrEmpty(row) && column >= 0)
             {
-                if (!string.IsNullOrEmpty(row) && column >= 0)
+                /// messagebox
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this userName?",
+                "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                /// Change button color to green when cancel
+                if (result == DialogResult.Yes)
                 {
-                    lblMessage.Text = book.Cancel(row, column, txtCustomerName.Text.ToString());
+                    lblMessage.Text = book.Cancel(row, column, userName);
 
                     if (!lblMessage.Text.Contains("userName"))
                     {
                         UpdateSeatButtonColor(row, column, Color.LightGreen);
                     }
-
                 }
-                else
-                {
-                    lblMessage.Text = "Please choose row and column";
-                }
-               
+            }
+            else
+            {
+                lblMessage.Text = "Please enter your userName OR choose row and column";
             }
 
             //set capcity Lable 
