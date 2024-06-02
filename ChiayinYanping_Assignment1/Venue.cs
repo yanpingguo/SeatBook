@@ -19,7 +19,7 @@ namespace ChiayinYanping_Assignment1
     public partial class Venue : Form
     {
         string row;
-        int column;
+        int column =-1;
         VenueBook book = new VenueBook();
         public Venue()
         {
@@ -37,6 +37,9 @@ namespace ChiayinYanping_Assignment1
 
             /// Initialize seat buttons color
             ResetAllSeatButtonColors();
+
+            //Initialize capacity total lable
+            setTotalCapacityLable();
         }
 
         private void Venue_Load(object sender, EventArgs e)
@@ -45,54 +48,92 @@ namespace ChiayinYanping_Assignment1
 
         }
 
-        //booking seat
+        //Add booking seat
         private void btnBook_Click(object sender, EventArgs e)
         {
             string txtCustomerNames = txtCustomerName.Text;
-            string returnValue = book.AddBook(row, column, txtCustomerNames);
-            if (string.IsNullOrEmpty(returnValue))
+            if(!string.IsNullOrEmpty(txtCustomerNames) && !string.IsNullOrEmpty(row) && column>=0)
             {
-                lblMessage.Text = "This seat book sucessfull";
-                /// Change button color to red when booked
-                UpdateSeatButtonColor(row, column, Color.Red);
+                string returnValue = book.AddBook(row, column, txtCustomerNames);
+                if (string.IsNullOrEmpty(returnValue))
+                {
+                    lblMessage.Text = "This seat book sucessfull";
+
+                    /// Change button color to red when booked
+                    UpdateSeatButtonColor(row, column, Color.Red);
+                }
+                else
+                {
+                    lblMessage.Text = "This seat is already booked";
+                }
             }
             else
             {
-                lblMessage.Text = "This seat is already booked";
+                lblMessage.Text = "Please enter your username OR choose row column!!!";
             }
+
+            //set capcity Lable 
+            setTotalCapacityLable();
         }
 
+        /**
+         * add to wait list
+         */
         private void btnAddToWaitList_Click(object sender, EventArgs e)
         {
             lblMessage.Text = book.AddToWaitList(txtCustomerName.Text);
+
+            //set capcity Lable 
+            setTotalCapacityLable();
         }
+
 
         //cancel one booking
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            lblMessage.Text = book.Cancel(row, column);
-     
             /// messagebox
             DialogResult result = MessageBox.Show("Are you sure you want to delete this userName?",
             "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            //DialogResult result = MessageBox.Show("Are you sure you want to delete this userName",
-            // MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
 
             /// Change button color to green when cancel
             if(result == DialogResult.Yes)
             {
-                UpdateSeatButtonColor(row, column, Color.LightGreen);
+                if (!string.IsNullOrEmpty(row) && column >= 0)
+                {
+                    lblMessage.Text = book.Cancel(row, column, txtCustomerName.Text.ToString());
+
+                    if (!lblMessage.Text.Contains("userName"))
+                    {
+                        UpdateSeatButtonColor(row, column, Color.LightGreen);
+                    }
+
+                }
+                else
+                {
+                    lblMessage.Text = "Please choose row and column";
+                }
+               
             }
+
+            //set capcity Lable 
+            setTotalCapacityLable();
 
         }
 
-        //cancel all booking
+        /**
+         * cancel all booking
+         */
         private void btnCancelAllBookings_Click(object sender, EventArgs e)
         {
             book.CancelAll();
-            lblMessage.Text = "Cancel all successfull";
-            /// Change button color to green when reset /// not working!!!!
+
+            //Change button color to green 
             ResetAllSeatButtonColors();
+
+            lblMessage.Text = "Cancel all successfull";
+
+            //set capcity Lable 
+            setTotalCapacityLable();
 
         }
 
@@ -122,6 +163,7 @@ namespace ChiayinYanping_Assignment1
         /// Method to reset all seat button colors
         private void ResetAllSeatButtonColors()
         {
+            Console.WriteLine("laile ResetAllSeatButtonColors");
             foreach (var row in new[] { "A", "B", "C" })
             {
                 for (int col = 1; col <= 4; col++)
@@ -131,5 +173,71 @@ namespace ChiayinYanping_Assignment1
             }
         }
 
+        /**
+         * get mousehover show current represent username
+         */
+        private void button_focus(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            string buttonText = button.Text;
+            string userName = book.getFouceName(buttonText);
+            toolTip1.SetToolTip(button, userName);
+        }
+
+        /**
+         * fill all the vacant seats
+         */
+        private void btnFillAllSeats_Click(object sender, EventArgs e)
+        {
+            string txtcustomerName = txtCustomerName.Text;
+            if(!string.IsNullOrEmpty(txtcustomerName))
+            {
+                string result = book.FillAllSeats(txtcustomerName);
+                if (!string.IsNullOrEmpty(result))
+                {
+                    string[] resultArray = result.Split(',');
+                    for(int i = 0; i < resultArray.Length; i++)
+                    {
+                        if (!string.IsNullOrEmpty(resultArray[i]))
+                        {
+                            Button seatButton = this.Controls.Find($"btn{resultArray[i]}", true).FirstOrDefault() as Button;
+                            if (seatButton != null)
+                            {
+                                seatButton.BackColor = Color.Red;
+                            }
+                        }
+                    }
+                    lblMessage.Text = "Fill all seats successful";
+                }
+                else
+                {
+                    lblMessage.Text = "The seats are fill";
+                }
+               
+            }
+            else
+            {
+                lblMessage.Text = "Please enter userName!!!";
+            }
+
+            //set capcity Lable 
+            setTotalCapacityLable();
+        }
+        /**
+         * set total capacity lable
+         */
+        public void setTotalCapacityLable()
+        {
+            string waitListValue = "no one is on the wait list";
+            int waitListCount = book.waitListCount;
+            if (waitListCount > 0)
+            {
+                 waitListValue = waitListCount + " is on the wait list";
+
+            }
+
+            lblStatus.Text = "Seat available: " +
+                book.CountAvailable + "(i.e.at " + book.Capacity + ")."+ waitListValue;
+        }
     }
 }

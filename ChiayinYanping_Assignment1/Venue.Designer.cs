@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnC4 = new System.Windows.Forms.Button();
             this.btnC3 = new System.Windows.Forms.Button();
@@ -42,7 +43,7 @@
             this.btnA2 = new System.Windows.Forms.Button();
             this.btnA1 = new System.Windows.Forms.Button();
             this.lblTotalCapacity = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.lblRows = new System.Windows.Forms.Label();
             this.lblColums = new System.Windows.Forms.Label();
             this.lblCustomerName = new System.Windows.Forms.Label();
@@ -55,6 +56,7 @@
             this.btnAddToWaitList = new System.Windows.Forms.Button();
             this.btnFillAllSeats = new System.Windows.Forms.Button();
             this.btnCancelAllBookings = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,6 +92,7 @@
             this.btnC4.TabIndex = 0;
             this.btnC4.Text = "C4";
             this.btnC4.UseVisualStyleBackColor = true;
+            this.btnC4.MouseHover += new System.EventHandler(this.button_focus);
             // 
             // btnC3
             // 
@@ -100,6 +103,7 @@
             this.btnC3.TabIndex = 0;
             this.btnC3.Text = "C3";
             this.btnC3.UseVisualStyleBackColor = true;
+            this.btnC3.MouseHover += new System.EventHandler(this.button_focus);
             // 
             // btnB4
             // 
@@ -110,6 +114,7 @@
             this.btnB4.TabIndex = 0;
             this.btnB4.Text = "B4";
             this.btnB4.UseVisualStyleBackColor = true;
+            this.btnB4.MouseHover += new System.EventHandler(this.button_focus);
             // 
             // btnB3
             // 
@@ -120,6 +125,7 @@
             this.btnB3.TabIndex = 0;
             this.btnB3.Text = "B3";
             this.btnB3.UseVisualStyleBackColor = true;
+            this.btnB3.MouseHover += new System.EventHandler(this.button_focus);
             // 
             // btnC2
             // 
@@ -130,6 +136,7 @@
             this.btnC2.TabIndex = 0;
             this.btnC2.Text = "C2";
             this.btnC2.UseVisualStyleBackColor = true;
+            this.btnC2.MouseHover += new System.EventHandler(this.button_focus);
             // 
             // btnA4
             // 
@@ -140,6 +147,7 @@
             this.btnA4.TabIndex = 0;
             this.btnA4.Text = "A4";
             this.btnA4.UseVisualStyleBackColor = true;
+            this.btnA4.MouseHover += new System.EventHandler(this.button_focus);
             // 
             // btnB2
             // 
@@ -150,6 +158,7 @@
             this.btnB2.TabIndex = 0;
             this.btnB2.Text = "B2";
             this.btnB2.UseVisualStyleBackColor = true;
+            this.btnB2.MouseHover += new System.EventHandler(this.button_focus);
             // 
             // btnC1
             // 
@@ -160,6 +169,7 @@
             this.btnC1.TabIndex = 0;
             this.btnC1.Text = "C1";
             this.btnC1.UseVisualStyleBackColor = true;
+            this.btnC1.MouseHover += new System.EventHandler(this.button_focus);
             // 
             // btnA3
             // 
@@ -170,6 +180,7 @@
             this.btnA3.TabIndex = 0;
             this.btnA3.Text = "A3";
             this.btnA3.UseVisualStyleBackColor = true;
+            this.btnA3.MouseHover += new System.EventHandler(this.button_focus);
             // 
             // btnB1
             // 
@@ -180,6 +191,7 @@
             this.btnB1.TabIndex = 0;
             this.btnB1.Text = "B1";
             this.btnB1.UseVisualStyleBackColor = true;
+            this.btnB1.MouseHover += new System.EventHandler(this.button_focus);
             // 
             // btnA2
             // 
@@ -190,6 +202,7 @@
             this.btnA2.TabIndex = 0;
             this.btnA2.Text = "A2";
             this.btnA2.UseVisualStyleBackColor = true;
+            this.btnA2.MouseHover += new System.EventHandler(this.button_focus);
             // 
             // btnA1
             // 
@@ -200,6 +213,7 @@
             this.btnA1.TabIndex = 0;
             this.btnA1.Text = "A1";
             this.btnA1.UseVisualStyleBackColor = true;
+            this.btnA1.MouseHover += new System.EventHandler(this.button_focus);
             // 
             // lblTotalCapacity
             // 
@@ -211,15 +225,15 @@
             this.lblTotalCapacity.TabIndex = 1;
             this.lblTotalCapacity.Text = "Total capacity: 12.";
             // 
-            // label1
+            // lblStatus
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(155, 9);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 18);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(183, 9);
+            this.lblStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(62, 18);
+            this.lblStatus.TabIndex = 2;
+            this.lblStatus.Text = "label1";
             // 
             // lblRows
             // 
@@ -333,6 +347,7 @@
             this.btnFillAllSeats.TabIndex = 7;
             this.btnFillAllSeats.Text = "Fill all seats";
             this.btnFillAllSeats.UseVisualStyleBackColor = true;
+            this.btnFillAllSeats.Click += new System.EventHandler(this.btnFillAllSeats_Click);
             // 
             // btnCancelAllBookings
             // 
@@ -343,6 +358,7 @@
             this.btnCancelAllBookings.TabIndex = 7;
             this.btnCancelAllBookings.Text = "Cancel all bookings";
             this.btnCancelAllBookings.UseVisualStyleBackColor = true;
+            this.btnCancelAllBookings.Click += new System.EventHandler(this.btnCancelAllBookings_Click);
             // 
             // Venue
             // 
@@ -361,12 +377,13 @@
             this.Controls.Add(this.lblCustomerName);
             this.Controls.Add(this.lblColums);
             this.Controls.Add(this.lblRows);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblTotalCapacity);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Venue";
             this.Text = "Venue";
+            this.Click += new System.EventHandler(this.Venue_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -389,7 +406,7 @@
         private System.Windows.Forms.Button btnA2;
         private System.Windows.Forms.Button btnA1;
         private System.Windows.Forms.Label lblTotalCapacity;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblRows;
         private System.Windows.Forms.Label lblColums;
         private System.Windows.Forms.Label lblCustomerName;
@@ -402,6 +419,7 @@
         private System.Windows.Forms.Button btnAddToWaitList;
         private System.Windows.Forms.Button btnFillAllSeats;
         private System.Windows.Forms.Button btnCancelAllBookings;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
